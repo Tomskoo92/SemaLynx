@@ -1,7 +1,5 @@
 <div align="center">
-  <h1>Projet Semabox 🖥️</h1>
-
-  ![Logo](https://github.com/Foufou-exe/Semabox/blob/dev/.github/Logo_Banniere.png?raw=true)
+  <h1>Projet Semalynx 🖥️</h1>
 
   [![License Propriétaire](https://img.shields.io/badge/License-Propri%C3%A9taire-green.svg)](https://github.com/Foufou-exe/Semabox/blob/main/license)
   ![Version Python](https://img.shields.io/badge/Compatible-Python%203.11%203.10-yellow.svg)
