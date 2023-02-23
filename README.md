@@ -1,8 +1,10 @@
 <div align="center">
   <h1>Projet Semalynx 🖥️</h1>
 
+![Logo](https://github.com/Foufou-exe/Semabox/blob/dev/.github/Logo_Banniere.png?raw=true)
+
   [![License Propriétaire](https://img.shields.io/badge/License-Propri%C3%A9taire-green.svg)](https://github.com/Foufou-exe/Semabox/blob/main/license)
-  ![Version Python](https://img.shields.io/badge/Compatible-Python%203.11%203.10-yellow.svg)
+  ![Version Python](https://img.shields.io/badge/Compatible-PHP8.4-blue.svg)
 
 </div>
 
@@ -31,6 +33,17 @@ Mise en situation :
 
 ```bash
 git clone https://github.com/Foufou-exe/SemaLynx.git
+```
+
+#### **Etape 2**: Tu vas dans le dossier principal
+
+```bash
+cd SemaLynx
+```
+#### **Etape 2**: Tu copie les fichiers dans le chemin web
+
+```bash
+cp * /var/www/html
 ```
 
 #### **Etape 2**: Tu redemmare le server web
