@@ -40,13 +40,13 @@ git clone https://github.com/Foufou-exe/SemaLynx.git
 ```bash
 cd SemaLynx
 ```
-#### **Etape 2**: Tu copie les fichiers dans le chemin web
+#### **Etape 3**: Tu copie les fichiers dans le chemin web
 
 ```bash
 cp * /var/www/html
 ```
 
-#### **Etape 2**: Tu redemmare le server web
+#### **Etape 4**: Tu redemmare le server web
 
 ```bash
 systemctl restart apache2
