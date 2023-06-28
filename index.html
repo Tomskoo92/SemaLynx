@@ -22,24 +22,7 @@ $dbname = "semabox";
                         <span class="brand-name">SemaLynx</span>
                     </div>
                 </section>
-<?php
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-//select all the information from the table "box"
-$sql = "SELECT * FROM box";
-$result = $conn->query($sql);
-
-//print the results
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-?>
                 <a href="?uid=<?php echo $row['sema_id']; ?>">
                     <div class="sema">
                         <div class="container-photo-titre">
@@ -61,27 +44,11 @@ if ($result->num_rows > 0) {
                         <p class="version">Version Semabox : <?php echo $row['sema_version']; ?></p> 
                     </div>
                 </a>
-<?php
-            }
-    } else {
-?>
+
         <p class="zero-resultat">Aucun résultat trouvé</p>
-<?php
-    }
-?>
+
             </nav>
-<?php
-    if (isset($_GET['uid'])) {
-        $sql2 = "SELECT * FROM box WHERE sema_id = '".$_GET['uid']."'";
-        $result2 = $conn->query($sql2);
-        if ($result2->num_rows > 0) {
-            $rows = $result2->fetch_assoc();
-            $ippublic = $rows['sema_ip_public'];
-            $host = $rows['sema_dns'];
-            $socket = @fsockopen($host, 80, $errorNo, $errorStr, 5);
-            if ($socket) {
-                fclose($socket);
-?>
+
             <div class="semabox">
                 <div class="haut">
                     <div class="materiel-body-container">
@@ -90,28 +57,7 @@ if ($result->num_rows > 0) {
                             <h1>Information Système</h1>
                         </div>
                         <div class="materiel-body">
-<?php
-$curl = curl_init();
-curl_setopt_array($curl, array(
-  CURLOPT_URL => $host."/api/materiel_server.py",
-  CURLOPT_RETURNTRANSFER => true,
-  CURLOPT_ENCODING => "",
-  CURLOPT_MAXREDIRS => 10,
-  CURLOPT_TIMEOUT => 0,
-  CURLOPT_FOLLOWLOCATION => true,
-  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-  CURLOPT_CUSTOMREQUEST => "GET",
-));
-$response = curl_exec($curl);
-$err = curl_error($curl);
-curl_close($curl);
 
-if ($err) {
-    echo "cURL Error #:" . $err;
-} else {
-    $data = json_decode(json_decode($response)->result_script_json);
-}
-?>
                             <h3>- OS : <?php echo $data->os_name ?> 🖥️</h3>
                             <h3>- Nombre de Coeurs CPU : <?php echo $data->num_cpus ?> 🫀</h3>
                             <h3>- Utilisation du CPU : <?php echo $data->cpu_utilization ?> %</h3>
@@ -191,9 +137,7 @@ if ($err) {
                     </form>
                 </div>
             </div> 
-<?php
-} else {
-?>
+
             <div class="semabox">
                 <div class="haut-down">
                     <div class="container-body-red-down">
@@ -208,22 +152,12 @@ if ($err) {
                     </div>
                 </div>
             </div>
-<?php
-}
-?> 
-<?php
-        } else {
-?>
+
+
             <p class="zero-resultat">Aucun résultat trouvé</p>
-<?php
-        }
-    } else {
-?>
+
         <p class="zero-resultat">Aucun résultat trouvé</p>
-<?php
-    }
-?>
-        </div>
+     </div>
         <script htype="text/javascript">
             function speedtestGo(host){
                 $.ajax({
